@@ -4,19 +4,19 @@ import "./Search.css";
 export const Search = ({send}) => {
   const [flight, setFlight] = useState("");
 
-  const handleSelectChange = (event) => {
-    setFlight(event.target.value);
+  const goToPassengers = () => {
+    send({type: "CONTINUE", selectedCountry: flight});
   };
 
-  const goToPassengers = () => {
-    send({type: "CONTINUE"});
+  const handleSelectChange = (event) => {
+    setFlight(event.target.value);
   };
 
   const options = ["Mexico", "Venezuela", "Colombia"];
 
   return (
     <div className='Search'>
-      <p className=''>Busca tu destino</p>
+      <p className='Search-title title'>Busca tu destino</p>
       <select
         id='country'
         className='Search-select'
